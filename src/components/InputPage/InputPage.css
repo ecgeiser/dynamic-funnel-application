@@ -1,0 +1,32 @@
+/* .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  } */
+
+/* input {
+    display: block;
+    box-sizing: border-box;
+    min-width: 100px;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+  } */
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+

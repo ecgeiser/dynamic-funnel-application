@@ -1,0 +1,19 @@
+{
+    "pages": [
+      {
+        "fields": [
+          {"name":"Name", "type":"string"}
+        ]
+      },
+      {
+        "fields": [
+          {"name":"Age", "type":"number"}
+        ]
+      },
+      {
+        "fields": [
+          {"name":"Date", "type":"date"}
+        ]
+      }
+    ]
+  }

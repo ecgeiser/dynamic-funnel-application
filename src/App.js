@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import DisplayPage from './components/DisplayPage/DisplayPage';
+import InputPage from './components/InputPage/InputPage';
+import PageNavigation from './components/PageNavigation/PageNavigation';
+import usePagination from './hooks/usePagination';
+import useFormConfig from './hooks/useFormConfig';
+import useFormState from './hooks/useFormState';
 
-function App() {
+const App = () => {
+  const { pageNum, setPageNum } = usePagination();
+  const { config, loading } = useFormConfig();
+  const { fieldValues, handleFormChange, handleFormSubmit } = useFormState();
+
+  if (loading || !config.pages) return <div>Loading...</div>;
+
+  const isDisplayPage = pageNum === config.pages.length;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <div className="form-container">
+        {isDisplayPage ? (
+          <DisplayPage fieldValues={fieldValues} />
+        ) : (
+          <form onSubmit={handleFormSubmit}>
+            <InputPage fields={config.pages[pageNum].fields} handleOnChange={handleFormChange} fieldValues={fieldValues} />
+          </form>
+        )}
+       <PageNavigation pageNum={pageNum} setPageNum={setPageNum} maxPages={config.pages.length} />
+      </div>
     </div>
   );
 }
