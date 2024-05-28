@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+## Running Locally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+available at http://localhost:3000/ after running 
+```npm start```
 
-## Available Scripts
 
-In the project directory, you can run:
+## Dynamic Funnel Application
 
-### `npm start`
+Using Vue or React, please create a single page application to gather data from users with a dynamic set of `Input Pages` ending in a `Display Page`. The first page loaded should always be the first data `Input Page`. The application must load some configuration file at start and it should be easy to change the configuration without rebuilding the application. Details on the configuration format are found below.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Input Pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Shows 1 to N input fields based on the configuration loaded on app load.
 
-### `npm test`
+### Display Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Displays all data gathered in a readable UI.
 
-### `npm run build`
+### Configuration Format
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The top level content of the configuration file is an Object with a `pages` property. This property is an Array of `Page Objects`. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`Page Objects` have one property, `fields`, which is an array of `Field Objects`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`Field Objects` have two properties, `name` and `type`. The `name` is the name of the field being updated. `type` is the type of input that is being requested.
 
-### `npm run eject`
+Below is an example showing a single page with 3 inputs.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```json
+{
+  "pages": [
+    {
+      "fields": [
+        {"name":"Name", "type":"string"},
+        {"name":"Age", "type":"number"},
+        {"name":"Date", "type":"date"},
+      ]
+    }
+  ]
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Below is an example showing a 3 pages with 1 input each.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+{
+  "pages": [
+    {
+      "fields": [
+        {"name":"Name", "type":"string"},
+      ]
+    },
+    {
+      "fields": [
+        {"name":"Age", "type":"number"},
+      ]
+    },
+    {
+      "fields": [
+        {"name":"Date", "type":"date"},
+      ]
+    }
+  ]
+}
+```
