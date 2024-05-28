@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
+import { setPageNum } from '../../global';
 
 const usePagination = (): { pageNum: number; setPageNum: setPageNum } => {
     const [pageNum, setPageNum] = useState<number>(0);

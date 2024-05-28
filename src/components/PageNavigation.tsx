@@ -1,3 +1,5 @@
+import { setPageNum } from '../../global';
+
 const PageNavigation = ({ pageNum, setPageNum, maxPages }: { pageNum: number, setPageNum: setPageNum, maxPages: number }) => {
     return (
         <div className="page-navigation">

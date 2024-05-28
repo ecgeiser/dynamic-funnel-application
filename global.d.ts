@@ -2,7 +2,7 @@ import { SetStateAction } from "react";
 
 interface Field {
     name: string;
-    type: string;
+    type: 'string' | 'number' | 'date';
 };
 
 interface Page {
