@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const useFormConfig = () => {
-    const [config, setConfig] = useState({});
-    const [loading, setLoading] = useState(false);
+const useFormConfig = (): { config: Config | null; loading: boolean } => {
+    const [config, setConfig] = useState<Config | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        const fetchConfig = async () => {
+        const fetchConfig = async (): Promise<void> => {
           try {
             setLoading(true);
             

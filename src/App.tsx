@@ -1,7 +1,7 @@
 import './App.css';
-import DisplayPage from './components/DisplayPage/DisplayPage';
-import InputPage from './components/InputPage/InputPage';
-import PageNavigation from './components/PageNavigation/PageNavigation';
+import DisplayPage from './components/DisplayPage';
+import InputPage from './components/InputPage';
+import PageNavigation from './components/PageNavigation';
 import usePagination from './hooks/usePagination';
 import useFormConfig from './hooks/useFormConfig';
 import useFormState from './hooks/useFormState';
@@ -11,9 +11,9 @@ const App = () => {
   const { config, loading } = useFormConfig();
   const { fieldValues, handleFormChange, handleFormSubmit } = useFormState();
 
-  if (loading || !config.pages) return <div>Loading...</div>;
+  if (loading || !config) return <div>Loading...</div>;
 
-  const isDisplayPage = pageNum === config.pages.length;
+  const isDisplayPage: boolean = pageNum === config.pages.length;
 
   return (
     <div className="app-container">

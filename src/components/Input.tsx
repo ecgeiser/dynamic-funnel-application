@@ -1,4 +1,6 @@
-const Input = ({ field, handleOnChange, fieldValues }) => {
+import { Field, handleFormChange, FieldValues } from "../../global";
+
+const Input = ({ field, handleOnChange, fieldValues }: { field: Field, handleOnChange: handleFormChange, fieldValues: FieldValues }) => {
     return (
         <>
             <label htmlFor={field.name}>{`${field.name}`}</label>

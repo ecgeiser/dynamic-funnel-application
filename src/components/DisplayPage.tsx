@@ -1,4 +1,6 @@
-const DisplayPage = ({ fieldValues }) => {
+import { FieldValues } from "../../global";
+
+const DisplayPage = ({ fieldValues }: { fieldValues: FieldValues }) => {
     const isEmpty = Object.keys(fieldValues).length === 0;
     
     return (

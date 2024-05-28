@@ -1,6 +1,4 @@
-import './PageNavigation.css';
-
-const PageNavigation = ({ pageNum, setPageNum, maxPages }) => {
+const PageNavigation = ({ pageNum, setPageNum, maxPages }: { pageNum: number, setPageNum: setPageNum, maxPages: number }) => {
     return (
         <div className="page-navigation">
             <button
